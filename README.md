@@ -18,18 +18,14 @@ fazer o scrap sem abrir o nagevador dava erro de timeout por que não era possiv
 Dividi o codigo em quatro classes:
 -   **Player:** Classe onde eu crio o objeto jogador para manipular os dados mais facilmente.
     
--   **PlayerMethods:** Nesta classe, criei três métodos para realizar as consultas nos dados obtidos através do scraping: `searchPlayerByName`,
--    `getTop10ByRounds` e `getTop10BySuccess`. Os nomes são bastante explicativos: o primeiro procura o jogador pelo nome e devolve todos os
+-   **PlayerMethods:** Nesta classe, criei três métodos para realizar as consultas nos dados obtidos através do scraping: `searchPlayerByName`, `getTop10ByRounds` e `getTop10BySuccess`. Os nomes são bastante explicativos: o primeiro procura o jogador pelo nome e devolve todos os
       status dele, e os outros dois ordenam os dados e mostram rankings. Um rank é baseado na quantidade de flashes gastas por round durante o
       período de tempo selecionado, e o outro é baseado na taxa de sucesso das flashes realizadas pelo jogador.
-    
-    Ao falar de dados, vale lembrar que o que foi pedido era obter a quantidade de flashes feitas por um jogador específico neste ano. Entretanto,
-    o jogador específico não aparece no site se o intervalo de datas for de 3 meses, 6 meses ou apenas este ano. Em nenhum desses casos aparecem
-    informações nem dele nem de nenhum jogador de seu time os dados so aparecem se o filtro de tempo de 12 meses ou de 2023 para baixo.
     
 -   **SeleniumScrap:** Nessa classe é feito o scraping e também crio a lista de players com os dados obtidos.
     
 -   **Main:** Este é o código que faz as consultas. Usei um switch case bem simples para realizar as consultas nos dados do scraping que obtive.
+-  Observação: Ao falar de dados, vale lembrar que o que foi pedido era obter a quantidade de flashes feitas por um jogador específico neste ano. Entretanto,o jogador específico não aparece no site se o intervalo de datas for de 3 meses, 6 meses ou apenas este ano (2024). Em nenhum desses casos, não aparece nenhuma informação dele e nem de nenhum jogador de seu time, os dados so aparecem se o filtro de tempo estive em 12 meses ou de 2023 para baixo.
 
 
 ## Resultado apos pesquisar Fallen depois do scrap feito:
