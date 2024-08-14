@@ -32,7 +32,7 @@ public class PlayerMethods {
         players.stream()
                 .sorted(Comparator.comparingDouble(Player::getSuccess).reversed())
                 .limit(10)
-                .forEach(player -> System.out.println(" Player: " + player.getName() + ", Rounds: " + player.getSuccess()));
+                .forEach(player -> System.out.println(" Player: " + player.getName() + ", Flashs bem sucedidas: " + player.getSuccess()));
         return null;
     }
 }

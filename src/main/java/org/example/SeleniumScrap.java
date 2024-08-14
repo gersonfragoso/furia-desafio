@@ -12,29 +12,32 @@ import java.util.ArrayList;
 import java.util.List;
 
     /*
-        Por que eu fiz o scrap com selenium (Maneira horrivel porém necessaria kkkk)
-        O unico site que possui todas e informações CS de players do CS (FLASHS) é o HLTV.ORG
-        Então começa o problema pois ele não permite qualquer tipo de scrap automatico, seja utilizando
-        Jsoup ou Http request, todos eles tem a conexão recusada. ERRO 403 forbidden, mesmo configurando
-        todos o headers possiveis ainda sim não conseguir fazer qualquer tipo de request no site. (Nem em Java e nem em Python).
-        Então so me sobrou o selenium que foi o unico que funcionou.
+        Por que eu fiz o scraping com Selenium (maneira horrível, porém necessária, kkkk)
+        O único site que possui todas as informações de players do CS (flashbangs) é o HLTV.org.
+        No entanto, o problema começou porque ele não permite qualquer tipo de scraping automatizado,
+        seja utilizando Jsoup ou HTTP requests; todas essas abordagens resultam em conexão recusada,
+        com um erro 403 Forbidden. Mesmo configurando todos os headers possíveis, não consegui realizar
+        qualquer tipo de request no site (nem em Java e nem em Python). Assim, a única opção que restou
+        foi usar o Selenium, que foi a única ferramenta que funcionou.
      */
 
 public class SeleniumScrap {
     List<Player> players = new ArrayList<>();
-    public List<Player> ScrapAllPlayersStats (){
+
+    public List<Player> ScrapAllPlayersStats() {
         //Minha versão do google chrome é 127
         System.setProperty("webdriver.chrome.driver", "src/main/java/org/example/drive/chromedriver.exe");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
+    /*
+        Porém a hltv alem de não aceitar praticamente nenhum tipo de scraping, ela também obriga o usuario a aceitar os cookies
+        toda vez que entra, então é necessario abrir o navegador
+        por este motivo deixa esse linha abaixo comentada.
 
-        //porém a hltv alem de não aceitar praticamente nenhum tipo de scrap, ela também obriga o usuario a aceitar os cookies
-        //toda vez que entra, então é necessario abrir o navegador
-        // por este motivo deixa esse linha abaixo comentada.
-        //options.addArguments("--headless"); O headless seria para executar o programa sem abrir a interface grafica
-
+        options.addArguments("--headless"); O headless seria para executar o programa sem abrir a interface grafica
+     */
         WebDriver navegador = new ChromeDriver(options);
 
         try {
@@ -70,10 +73,10 @@ public class SeleniumScrap {
 
             /*
                 Como não conseguir fazer de maneira padrão então tentei deixar a pesquisa mais completa, embora
-                isso deixe o scrap um pouco mais demorado porém com isso conseguir pegar todas a informações de flash
+                isso deixe o scraping um pouco mais demorado porém com isso conseguir pegar todas a informações de flash
                 de todos os players que estão no hltv.
 
-                O codigo abaixo é apenas transformando toda informando que retirei do scrap em um objeto player para
+                O codigo abaixo é apenas transformando toda informando que retirei do scraping em um objeto player para
                 poder pesquisar as informações de outros players também.
              */
 
