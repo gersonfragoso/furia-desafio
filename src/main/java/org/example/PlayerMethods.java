@@ -20,18 +20,18 @@ public class PlayerMethods {
     }
 
     public String getTop10ByRounds() {
-        System.out.println("\n   TOP 5 JOGADORES QUE MAIS USARAM FLASHS   \n");
+        System.out.println("\n   TOP 10 JOGADORES QUE MAIS USARAM FLASHS   \n");
         players.stream()
                 .sorted(Comparator.comparingInt(Player::getRounds).reversed())
-                .limit(5)
+                .limit(10)
                 .forEach(player -> System.out.println("Player: " + player.getName() + ", Rounds: " + player.getRounds()));
         return null;
     }
     public String getTop10BySucess() {
-        System.out.println("\n TOP 5 JOGADORES QUE MAIS TIVERA SUCESSO EM SUAS FLASH \n");
+        System.out.println("\n TOP 10 JOGADORES QUE MAIS TIVERA SUCESSO EM SUAS FLASH \n");
         players.stream()
                 .sorted(Comparator.comparingDouble(Player::getSuccess).reversed())
-                .limit(5)
+                .limit(10)
                 .forEach(player -> System.out.println(" Player: " + player.getName() + ", Rounds: " + player.getSuccess()));
         return null;
     }
